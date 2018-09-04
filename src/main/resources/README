@@ -1,0 +1,2 @@
+Start Redis Docker with port of 32768
+docker run -p 32768:6379 -it --name redisx redis
