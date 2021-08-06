@@ -25,7 +25,7 @@ public class CustomMessageSubscriber implements MessageListener
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            log.error(String.format("Error occurred while convertion bytes to object :  %s",e.getMessage()));
         }
     }
 }
