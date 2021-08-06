@@ -7,10 +7,13 @@ import org.springframework.data.redis.connection.MessageListener;
 
 import java.io.IOException;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Created by : tanersenyurt
  * Date : 29.08.2018
  ***/
+@Slf4j
 public class CustomMessageSubscriber implements MessageListener
 {
     @Override
@@ -18,7 +21,7 @@ public class CustomMessageSubscriber implements MessageListener
         try
         {
             Customer customer = new ObjectMapper().readValue(message.toString(), Customer.class);
-            System.out.println("Received >> " + customer.toString() +  ", " + Thread.currentThread().getName() );
+            log.info("Received >> " + customer.toString() +  ", " + Thread.currentThread().getName() );
         }
         catch (IOException e)
         {
